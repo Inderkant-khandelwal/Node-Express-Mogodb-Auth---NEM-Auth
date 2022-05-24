@@ -1,0 +1,89 @@
+<%- include("./partials/header.ejs")%>
+
+         
+<%# this is the file when you'll visit localhost:8000/auth/new-password/userId/jwt-token
+ kindly note this when user will reset password then a mail will send to user email
+ and that mail have  link to this route 
+ remember that mail will expires in 15 min 
+ because we are expiring JWT in 15 minute
+ for more understanding please go through the project 
+ and have cofffe and go slowly 
+%>   
+
+<div id="header" class="inder-header">
+  <section class="left-side-container">
+    <video loop autoplay muted width="100%" height="550px">
+        <source src="/video/newpass.mp4" type="video/mp4">
+    </video>
+
+    <!-- <div class="waves-container">
+        <img src="./images/login_wave1.svg" alt="waves-image">
+    </div>  -->
+</section>
+     
+  <section class="right-side-container">
+        <div class="top-container">
+             
+             
+
+        </div>
+    
+       <div class="heading-container">
+          <h1>Welcome to Panda News !</h1>
+            <p>Reset Your Passowrd</p>
+            <!-- server side error -->
+        <% if(isError) { %>
+            <p id="newPassError" style="color:red"><%= errorType %></p>  
+            <% } %> 
+   <!-- client side error -->
+   <p id="clientError" style="color:red;display: none;"></p> 
+    
+  
+   
+</div>
+
+       <div class="form-container">
+           
+          
+           <form action=<%= url %>   method="POST">
+              <div class="email-container">
+                   <div class="email-label-container"><label for="new-pass-id">New Password</label></div>
+                   <div class="email-input-container">
+                       <input  class="s-c" onfocus="hideErrorMessageOfNewPassPage(document.getElementById('newPassError') , document.getElementById('clientError'))" type="password" name="user_new_pass" id="new-pass-id" autocomplete="off">
+                   </div>
+              </div>
+
+              <div class="password-container">
+                <div class="pass-label-container"><label for="confirm-pass-id">Confirm Password</label></div>
+                <div class="pass-input-container">
+                    <input class="s-c" onfocus="hideErrorMessageOfNewPassPage(document.getElementById('newPassError') , document.getElementById('clientError') )" type="password" name="user_c_pass" id="confirm-pass-id" autocomplete="off">
+                </div>
+            </div>
+              
+            <div class="askForAccount-Container">
+                <span>Wanna Login ? <b><a href="/">Login</a></b></span> <br />
+                
+            </div>
+            <div class="askForAccount-Container">
+                <span>Don't have account ? <b><a href="/auth/register">Sign up</a></b></span> <br />
+                
+            </div>
+            
+
+            <div class="login-button-container">
+                <button onclick="validateNewPassPageInputs( document.getElementById('new-pass-id') , document.getElementById('confirm-pass-id') , document.getElementById('clientError') )" type="button" id="newPassSubmitButton">Update Password</button>
+            </div>
+          
+              
+        </form>
+       </div>
+
+  </section>
+
+  
+</div>
+
+
+
+
+<%- include("./partials/footer.ejs") %>

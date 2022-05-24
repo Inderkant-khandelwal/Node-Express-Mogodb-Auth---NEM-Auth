@@ -1,0 +1,81 @@
+<%- include("./partials/header.ejs")  %>
+       
+<%# this is the page will show when you first time login while at the time
+ you login a OTP will be sent to you on your mail id to verify your mail
+  
+%>
+
+            
+<div id="header" class="inder-header">
+  <section class="left-side-container">
+    <video loop autoplay muted width="100%" height="550px">
+        <source src="/video/password.mp4" type="video/mp4">
+    </video>
+
+    
+</section>
+     
+  <section class="right-side-container">
+        <div class="top-container">
+             
+             
+
+        </div>
+    
+       <div class="heading-container">
+          <h1 class="otp-h">Dear, check your mail</h1>
+            <p class="otp-p-1">We have just sent OTP  on your</p>
+                  <p  class="sec-p otp-p-2" style="margin-left: 10%;">registered E-mail Id</p>
+
+                             <!-- server side error -->
+                             <% if(isError) { %>
+                                <p id="fError" style="color:red"><%= errorType %></p>  
+                                <% } %> 
+                       <!-- client side error -->
+                       <p class="otp-c-e" id="clientError" style="color:red;display: none;"></p> 
+                        
+                      
+                    
+        
+       </div>
+
+       <div class="form-container">
+           <form action="/auth/verify-otp" method="POST">
+              <div class="email-container otp-e-con">
+                   <div class="email-label-container otp-l-c"><label for="email-id">Enter OTP</label></div>
+                   <div class="email-input-container otp-e-i-c">
+                       <input class="s-c otp-input" onfocus="hideErrorMessage(document.getElementById('fError') , document.getElementById('clientError'))" type="text" name="user_otp" id="email-id" autocomplete="off">
+                   </div>
+              </div>
+
+              
+              
+           
+            <div class="askForAccount-Container otp-t">
+                <span >OTP valid for 15 min: </span> <br />
+                
+            </div>
+            <div class="askForAccount-Container otp-r-b">
+                <a href="/" title="Resend Otp"><span  style="color:blue;text-decoration: underline;cursor: pointer;">Resend Otp ?</span></a> <br />
+                
+            </div>
+
+            
+
+            <div class="login-button-container otp-s-button">
+                <button class="otpButton" onclick="checkOtpValidation()" type="button" id="submitButton">Verify OTP</button>
+            </div>
+          
+              
+        </form>
+       </div>
+
+  </section>
+
+  
+</div>
+
+
+
+
+<%- include("./partials/footer.ejs") %>

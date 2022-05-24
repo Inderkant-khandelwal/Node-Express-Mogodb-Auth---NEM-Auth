@@ -1,0 +1,107 @@
+<%- include("./partials/header.ejs")  %>
+
+ 
+<%# this file will run when you visit route http://localhost:8000/home %>
+    <header id="dashboard-header">
+     <!-- logo-container   -->
+     <div id="logo-con">
+           <!-- drawer icon container -->
+           <div id="drawer-icon-con" title="Search Icon" onclick="showSideBar()">
+                <!-- drawer-icon-main-icon-con -->
+                <div id="icon"><i class="fa-solid fa-bars-staggered"></i></div>
+           </div>
+           <div id="main-logo-con">
+                <img src="/images/web-panda-news-logo.png" alt="Panda News Logo" title="Panda News Logo">
+           </div>
+
+       </div>
+     <!-- search bar   -->
+     <div id="search-con"> 
+         
+          <div id="main-search-con">
+               <div id="icon-search-con"></div>
+                 <!-- input search field -->
+                 <input title="Search Bar" type="search" autocomplete="OFF" name="search" id="inputSeach" placeholder="Search all news">
+                <div id="close-icon-con"><i class="fa-solid fa-circle-xmark"></i></div>
+          </div>
+
+     </div>
+     
+     <!-- right most icon -->
+      <div id="right-icon-con">
+             
+        <div title="Profile" id="user-icon-con" class="u-same"><i class="fa-solid fa-user-large"></i></div>
+        <div title="Notification" id="user-notification" class="u-same"><i class="fa-solid fa-bell"></i></div>
+        <div title="Search News"  id="search-mb-con" class="u-same"><img width="30px" height="30px" src="/images/icon.svg" alt="icon"></div>
+        <div title="Settings" id="user-move-vert" class="u-same"><img src="/images/more_vert.svg" alt="icon"></div>
+
+
+      </div>
+
+     
+       
+    </header>
+    <div id="cover">
+     <!-- side drawer -->
+     <aside id="side-drawer-con">
+         <!-- profile-container  -->
+         <div id="left-drawer-profile-container">
+              <!-- profile-pic container -->
+              <div id="profile_pic-con">
+                   <img width="100%" height="100%" src="/images/user.png" alt="User Image" title="upload your image">
+              </div>
+
+              <!-- header-content -->
+               <div id="content-icon-con" onclick="hideSidebar()">
+                    <i class="fa-solid fa-circle-xmark"></i>
+               </div>  
+
+               <!-- user-name-con -->
+                 <div id="username-con">
+                       <h3>Welcome</h3>
+                        <b id="user-name-dynamic"></b>
+                    </div>
+                 
+                 <!-- vefied-icon-con    -->
+                 <div id="verified-icon-con">
+                    <img width="100%" height="100%" src="/images/verify_user.png" alt="You are verified user">
+          
+               </div>
+
+         </div>
+          
+         <!-- items -->
+          <div id="items-container">
+               <ul id="ul-con-for-items">
+                    <li class="profile-side-li"><i class="fa-solid fa-house-user"></i> <span>Home</span></li>
+                    <li class="profile-side-li user-p-li"><i class="fa-solid fa-user"></i> <span>Your Profile</span></li>
+                    <a class="" style="text-decoration:none;color:#2b0000"   href="/auth/change-password"><li class="profile-side-li user-p-li"><i class="fa-solid fa-lock"></i><span>Change Password</span></li></a>
+
+                    <li class="profile-side-li user-p-li"><i class="fa-solid fa-user"></i> <span>Political</span></li>
+                    <li class="profile-side-li user-p-li"><i class="fa-solid fa-user"></i> <span>Cricket</span></li>
+                    <li class="profile-side-li user-p-li"><i class="fa-solid fa-user"></i> <span>WWE</span></li>
+                    <li class="profile-side-li user-p-li"><i class="fa-solid fa-user"></i> <span>Business</span></li>
+                     
+                    <!-- logout-con -->
+
+                      
+                     <div id="logout" title="Logout" onclick="logoutUser()">
+                         <h4> <i class="fa-solid fa-right-from-bracket"></i> &nbsp; Logout</h4>
+                    </div>
+                    
+               
+               </ul>
+              
+          </div>
+
+         
+
+     </aside>
+</div>
+
+<section style="text-align:center; margin-top:20px;font-size:60px">
+     <h1>Welcome To Panda News</h1>
+</section>
+ 
+
+<%- include("./partials/footer.ejs") %>

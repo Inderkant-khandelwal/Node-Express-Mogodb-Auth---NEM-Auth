@@ -1,0 +1,81 @@
+<%- include("./partials/header.ejs")  %>
+         
+     
+<%# this is the page Sign up page will be shown to you 
+    when you visit :-  http://localhost:8000/auth/register
+%>
+
+<div id="header" class="inder-header">
+  <section class="left-side-container" style="min-height: 750px;">
+    <video loop autoplay muted width="100%" height="600px">
+        <source src="/video/signup.mp4" type="video/mp4">
+    </video>
+
+    <!-- <div class="waves-container">
+        <img src="./images/login_wave1.svg" alt="waves-image">
+    </div>  -->
+</section>
+     
+  <section class="right-side-container" style="min-height: 750px;">
+        <div class="top-container">
+             
+             
+
+        </div>
+    
+       <div class="heading-container">
+          <h1>Welcome to Panda News !</h1>
+            <p>Let's create your account</p>
+            <!-- server side error -->
+            <% if(isError) { %>
+             <p id="signupError" style="color:red"><%= errorType %></p>  
+             <% } %> 
+            <!-- client side error -->
+            <p id="clientsignupError" style="color:red;display: none;"></p>  
+
+       </div>
+
+       <div class="form-container">
+           <form action="/auth/register" method="POST">
+
+            <div class="name-container">
+                <div class="name-label-container"><label for="name-id">Name</label></div>
+                <div class="name-input-container">
+                    <input onfocus="hideErrorMessage(document.getElementById('signupError') , document.getElementById('clientsignupError'))"  class="s-c" type="text" name="user_name" id="name-id" autocomplete="off">
+                </div>
+           </div>  
+
+              <div class="email-container">
+                   <div class="email-label-container"><label for="email-id">Email</label></div>
+                   <div class="email-input-container">
+                       <input onfocus="hideErrorMessage(document.getElementById('signupError') , document.getElementById('clientsignupError'))"  class="s-c" type="text" name="user_email" id="email-id" autocomplete="off">
+                   </div>
+              </div>
+
+              <div class="password-container">
+                <div class="pass-label-container"><label for="pass-id">Password</label></div>
+                <div class="pass-input-container">
+                    <input onfocus="hideErrorMessage(document.getElementById('signupError') , document.getElementById('clientsignupError'))"  class="s-c" type="password" name="user_password" id="pass-id" autocomplete="off">
+                </div>
+            </div>
+              
+            <div class="askForAccount-Container">
+                <span>Already have account ? <b><a href="/">Login</a></b></span>
+            </div>
+
+            <div class="login-button-container">
+                <button id="submitButton" type="button" onclick="checkingAllInputField( document.getElementById('clientsignupError') , document.querySelectorAll('input.s-c'))">Register</button>
+            </div>
+              
+        </form>
+       </div>
+
+  </section>
+
+  
+</div>
+
+
+
+
+<%- include("./partials/footer.ejs") %>

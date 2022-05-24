@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .flex-con{
+            width: 100%;
+            min-height:600px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border:1px solid red; */
+
+
+        }
+
+        ::-webkit-scrollbar{
+       width:10px;
+   }
+
+   ::-webkit-scrollbar-track{
+      background:white;
+   }
+
+   ::-webkit-scrollbar-thumb{
+       background:#273036;
+       border-radius:50px;
+   }
+
+   ::-webkit-scrollbar-thumb:hover{
+       background:#c7d2fe;
+       
+   }
+
+   .video-button-con{
+       /* border:2px solid red; */
+       width: 80%;
+       min-height:600px;
+       height: 90vh;
+       display:flex;
+       flex-direction: column;
+       justify-content:center;
+       align-items:center;
+   } 
+   .video-con{
+       width:80%;
+       height: 80%;
+       /* border:1px solid green; */
+   }
+
+
+   .not-found-button-container{
+      margin:30px;
+    
+     
+      
+
+  }
+   .not-found-button-container button{
+       width:200px;
+       height:50px;
+       border-radius:24px;
+       border:none;
+       outline:none;
+       background:#18181B;
+       color:white;
+       font-weight:bold;
+       font-size:16px;
+       letter-spacing:1px;
+       box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+       cursor:pointer;
+
+   }
+    </style>
+</head>
+<body>
+    
+    <section class="flex-con">
+        <div class="video-button-con">
+             <div class="video-con">
+                <video loop autoplay muted width="100%" height="100%">
+                  <source src="http://localhost:8000/video/when_loged.mp4" type="video/mp4">
+                </video>
+             </div>
+
+             <div class="not-found-button-container" title="Go to Home">
+               <a href="/home"><button   type="button" >Go to Home</button></a> 
+            </div>
+
+        </div>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,84 @@
+     <%- include("./partials/header.ejs")  %>
+         
+     <%# this is main file when you visite for eg : www.youweb.com this file will show same as facebook.com 
+      file will run when you visit route http://localhost:8000 %>
+
+            <div id="header" class="inder-header">
+              <section class="left-side-container">
+                <video loop autoplay muted width="100%" height="550px">
+                    <source src="./video/blackBoy.mp4" type="video/mp4">
+                </video>
+
+                <!-- <div class="waves-container">
+                    <img src="./images/login_wave1.svg" alt="waves-image">
+                </div>  -->
+            </section>
+                 
+              <section class="right-side-container">
+                    <div class="top-container">
+                         
+                         
+ 
+                    </div>
+                
+                   <div class="heading-container">
+                      <h1>Welcome to Panda News !</h1>
+                        <p>Login to your account</p>
+                        <!-- server side error -->
+                    <% if(isError) { %>
+                        <p id="loginError" style="color:red"><%= errorType %></p>  
+                        <% } %> 
+               <!-- client side error -->
+               <p id="clientError" style="color:red;display: none;"></p> 
+                
+               <!-- when registeration sucess show message to user when he will redirecting to login after signup  -->
+                
+               <% if(isRegisterSuccess) { %>
+                <p id="whenSR" style="color:green;font-weight: bolder;"><%= isRegisterSuccess.message %></p>  
+                <% } %>     
+            </div>
+
+                   <div class="form-container">
+                       <form action="/" method="POST">
+                          <div class="email-container">
+                               <div class="email-label-container"><label for="email-id">Email</label></div>
+                               <div class="email-input-container">
+                                   <input  class="s-c" onfocus="hideErrorMessage(document.getElementById('loginError') , document.getElementById('clientError') , document.getElementById('whenSR'))" type="text" name="user_email" id="email-id" autocomplete="off">
+                               </div>
+                          </div>
+
+                          <div class="password-container">
+                            <div class="pass-label-container"><label for="pass-id">Password</label></div>
+                            <div class="pass-input-container">
+                                <input class="s-c" onfocus="hideErrorMessage(document.getElementById('loginError') , document.getElementById('clientError') , document.getElementById('whenSR'))" type="password" name="user_password" id="pass-id" autocomplete="off">
+                            </div>
+                        </div>
+                          
+                       
+                        <div class="askForAccount-Container">
+                            <span>Don't have account ? <b><a href="auth/register">Sign up</a></b></span> <br />
+                            
+                        </div>
+                        <div class="forgotpass-container" style="margin-left: 20%">
+                            <a href="auth/reset-password">Forgot Password?</a>
+                         </div>
+
+                        
+  
+                        <div class="login-button-container">
+                            <button onclick="checkingAllInputField( document.getElementById('clientError') , document.querySelectorAll('input.s-c'))" type="button" id="submitButton">Login</button>
+                        </div>
+                      
+                          
+                    </form>
+                   </div>
+
+              </section>
+
+              
+            </div>
+
+            
+        
+        
+      <%- include("./partials/footer.ejs") %>

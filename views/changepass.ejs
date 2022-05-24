@@ -1,0 +1,85 @@
+<%- include("./partials/header.ejs")%>
+
+<%# this file will run when you visit route http://localhost:8000/auth/change-password 
+ note : - you have to first signup and then login and then you can change-password
+ note:- http can be https & localhost can be any Ip or your domian name and 
+ if you are in local server or i can say localhost then your port can be different
+ i used 8000 port for this project
+%>
+         
+            
+<div id="header" class="inder-header">
+  <section class="left-side-container">
+    <video loop autoplay muted width="100%" height="550px">
+        <source src="/video/change_pass.mp4" type="video/mp4">
+    </video>
+
+    
+</section>
+     
+  <section class="right-side-container">
+        <div class="top-container">
+             
+             
+
+        </div>
+    
+       <div class="heading-container">
+          <h1 id="user-name-dynamic"></h1>
+            <p>Change Your Passowrd</p>
+            <!-- server side error -->
+        <% if(isError) { %>
+            <p id="changePassError" style="color:red"><%= errorType %></p>  
+            <% } %> 
+   <!-- client side error -->
+   <p id="clientError" style="color:red;display: none;"></p> 
+    
+  
+   
+</div>
+
+       <div class="form-container">
+           
+          
+           <form action="/auth/change-password"   method="POST">
+              <div class="email-container">
+                   <div class="email-label-container"><label for="new-pass-id">New Password</label></div>
+                   <div class="email-input-container">
+                       <input  class="s-c" onfocus="hideErrorMessageOfNewPassPage(document.getElementById('changePassError') , document.getElementById('clientError'))" type="password" name="user_new_pass" id="new-pass-id" autocomplete="off">
+                   </div>
+              </div>
+
+              <div class="password-container">
+                <div class="pass-label-container"><label for="confirm-pass-id">Confirm Password</label></div>
+                <div class="pass-input-container">
+                    <input class="s-c" onfocus="hideErrorMessageOfNewPassPage(document.getElementById('changePassError') , document.getElementById('clientError') )" type="password" name="user_c_pass" id="confirm-pass-id" autocomplete="off">
+                </div>
+            </div>
+              
+            <div class="askForAccount-Container">
+                <span>Go to Home <b><a href="/home">Home</a></b></span> <br />
+                
+            </div>
+            <div class="askForAccount-Container">
+                <span>You are special client to us</span> <br />
+                
+            </div>
+            
+
+            <div class="login-button-container">
+                <button onclick="validateNewPassPageInputs( document.getElementById('new-pass-id') , document.getElementById('confirm-pass-id') , document.getElementById('clientError') )" type="button" id="newPassSubmitButton">Change Password</button>
+            </div>
+          
+              
+        </form>
+       </div>
+
+  </section>
+
+  
+</div>
+
+
+
+
+<%- include("./partials/footer.ejs") %>
