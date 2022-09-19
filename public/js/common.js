@@ -195,7 +195,7 @@ const hideSidebar = ()=>{
 }
 function readNameFromCookie(){
     // getting element where logged user name will show
-    const whereUserNameShow = document.getElementById("user-name-dynamic");
+    let whereUserNameShow = document.getElementById("user-name-dynamic");
     // getting all cookie
     const allCookie = document.cookie;
     console.log(allCookie);
