@@ -207,7 +207,7 @@ function readNameFromCookie(){
     console.log(userName);
     if(userName){
         // setting name if name is there in cookie
-        whereUserNameShow.innerHTML=userName;
+        whereUserNameShow.innerHTML= userName;
     }else{
         // setting default name if name is not there
         whereUserNameShow.innerHTML= "Hello Guest";
